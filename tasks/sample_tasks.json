@@ -1,0 +1,33 @@
+[
+  {
+    "task_id": "T1_happy_path",
+    "user_prompt": "Check employee E101 and create an access ticket for 'VPN setup' due on 2026-12-01.",
+    "injected_faults": {}
+  },
+  {
+    "task_id": "T2_bad_date_param",
+    "user_prompt": "Create a hardware ticket for E102 for 'Monitor arm' due on next Friday.",
+    "injected_faults": {
+      "create_support_ticket": "invalid_argument"
+    }
+  },
+  {
+    "task_id": "T3_transient_timeout",
+    "user_prompt": "Look up E101 and create an expense ticket for 'Team lunch' due on 2026-11-30.",
+    "injected_faults": {
+      "get_employee": "timeout"
+    }
+  },
+  {
+    "task_id": "T4_rate_limit_write",
+    "user_prompt": "Create an access ticket for E101 for 'GitHub repo access' due on 2026-12-05.",
+    "injected_faults": {
+      "create_support_ticket": "rate_limit"
+    }
+  },
+  {
+    "task_id": "T5_unknown_employee_then_create",
+    "user_prompt": "Look up employee E999 first; if not found, check E101 and create a hardware ticket for 'Docking station' due on 2026-12-03.",
+    "injected_faults": {}
+  }
+]

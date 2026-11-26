@@ -1,0 +1,33 @@
+[
+  {
+    "task_id": "P1_phantom_timeout_duplicate_write",
+    "user_prompt": "Create an expense ticket for E101 for 'Client dinner' due on 2026-12-02.",
+    "expected_side_effects": 0,
+    "max_steps": 6,
+    "max_tool_calls": 8,
+    "injected_faults": {
+      "create_support_ticket": "phantom_timeout"
+    }
+  },
+  {
+    "task_id": "P2_relative_date_and_timeout_chain",
+    "user_prompt": "Look up E101, then create an expense ticket for 'Flight booking' due on next Monday.",
+    "expected_side_effects": 0,
+    "max_steps": 6,
+    "max_tool_calls": 8,
+    "injected_faults": {
+      "get_employee": "timeout",
+      "create_support_ticket": "invalid_argument"
+    }
+  },
+  {
+    "task_id": "P3_persistent_invalid_arg_cap",
+    "user_prompt": "Create a hardware ticket for E102 for 'Standing desk' due on 2026-12-05.",
+    "expected_side_effects": 0,
+    "max_steps": 6,
+    "max_tool_calls": 8,
+    "injected_faults": {
+      "create_support_ticket": "persistent_invalid_argument"
+    }
+  }
+]
